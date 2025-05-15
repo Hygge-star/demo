@@ -6,18 +6,20 @@ public class BinarySearch {
 		// TODO Auto-generated method stub
 	}
      public static int binarySearchBasic(int[] a,int target) {
-    	 int i=0,j=a.length-1; //设置指针初值
-    	 while(i<=j) { //范围有内容
+    	 int i=0,j=a.length; //设置指针初值
+    	 int candidate=-1;
+    	 while(i<j) { //范围有内容
     		 int m=(i+j)>>>2;
     		 if(target<a[m]) {
-    			 j=m-1;
+    			 j=m;
     		 }else if(target>a[m]) {
     			 i=m+1;
     		 }else {
-    			 return m;
+    			candidate=m;
+    			j=m-1;     //找最左的元素
     		 }
     	 }
-    	 return -1;
+    	 return candidate;
 	}
 
 }
